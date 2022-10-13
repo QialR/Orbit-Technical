@@ -1,0 +1,12 @@
+1. Buat environment baru menggunakan conda dengan nama sibi-lang-estimation. Jalankan perintah berikut pada terminal baris per-baris
+    
+    ```bash
+    conda create -n sibi-lang-estimation python=3.8
+    conda activate sibi-lang-estimation
+    pip install -r requirements.txt
+    ```
+    
+    Environment ini dibuat khusus untuk project “SIBI Lang Estimation” agar tidak mengganggu environment lain.
+    
+
+1. Jalankan aplikasi dengan menggunakan perintah berikut pada terminal

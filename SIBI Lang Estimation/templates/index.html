@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+        
+    <title>Live Streaming Demonstration</title>
+</head>
+<body style="background-color: #F8F9F9;">
+    <!--   Header -->
+    <div class="d-flex justify-content-between align-items-center px-5 py-3">
+        <div>
+            <img src={{ url_for('static', filename="images/orbit.png" ) }} height="50" width="auto">
+        </div>
+        <h1>Motion Detection - Computer Vision</h1>
+        <div>
+            <img src={{ url_for('static', filename="images/kampus-merdeka.png" ) }} height="50" width="auto">
+        </div>
+    </div>
+    <!-- Header End  -->
+    <div class="container-fluid my-5">
+        <div class="row">
+            <div class="col-lg-8  offset-lg-2">
+                <img src="{{ url_for('video_feed') }}" width="100%">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

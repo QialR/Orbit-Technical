@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Sistem Prediksi Karwayan Resign</title>
+</head>
+
+<body style="background-color: #F8F9F9;">
+  <!--   Header -->
+  <div class="d-flex justify-content-between align-items-center px-5 py-3">
+    <div>
+      <img src={{ url_for('static', filename="images/orbit.png" ) }} height="50" width="auto">
+    </div>
+    <h1>Sistem Prediksi Karyawan Resign</h1>
+    <div>
+      <img src={{ url_for('static', filename="images/kampus-merdeka.png" ) }} height="50" width="auto">
+    </div>
+  </div>
+  <!-- Header End  -->
+
+  <div class="container-fluid my-5">
+    <div class="mx-5">
+      <div class="row gx-5">
+        <div class="p-5 col-8 card" style="background-color: #e9e8e8;">
+          <form action="/predict" method="post">
+            <!-- Input Lama Bekerja (Tahun) -->
+            <div class="mb-3">
+              <label for="lama_bekerja" class="form-label">Lama Bekerja (Tahun)</label>
+              <input type="number" name="lama_bekerja" class="form-control" id="lama_bekerja" required>
+            </div>
+            <!-- End of Input Lama Bekerja (Tahun) -->
+
+            <!-- Input Jam Kerja Perbulan -->
+            <div class="mb-3">
+              <label for="jam_kerja_perbulan" class="form-label">Jam Kerja Perbulan</label>
+              <input type="number" name="jam_kerja_perbulan" class="form-control" id="jam_kerja_perbulan" required>
+            </div>
+            <!-- End of Input Jam Kerja Perbulan -->
+
+            <!-- Input Kecelakaan Kerja -->
+            <div class="mb-3">
+              <p class="mb-0">Pernah mengalami kecelakaan kerja</p>
+              <input class="form-check-input" name="is_pernah_kecelakaan_kerja" type="radio" value="1" id="pernah" required>
+              <label class="form-check-label mr-5" for="pernah">
+                Pernah
+              </label>
+              <input class="form-check-input" name="is_pernah_kecelakaan_kerja" type="radio" value="0"
+                id="tidak_pernah">
+              <label class="form-check-label" for="tidak_pernah">
+                Tidak pernah
+              </label>
+            </div>
+            <!-- End of Kecelakaan Kerja -->
+
+            <!-- Input Kategori Gaji -->
+            <label for="kategori_gaji">Kategori Gaji</label>
+            <select class="form-select mb-3" name="kategori_gaji" id="kategori_gaji" required>
+              <option value="" selected disabled>Pilih salah satu</option>
+              <option value="0">Low</option>
+              <option value="1">Middle</option>
+              <option value="2">High</option>
+            </select>
+            <!-- End of Input Kategori Gaji -->
+
+            <!--  Tingkat Kepuasan  -->
+            <label for="tingkat_kepuasan" class="form-label">Tingkat Kepuasan</label>
+            <input type="range" name="tingkat_kepuasan" class="form-range" id="tingkat_kepuasan" min="0" max="110" required>
+            <div class="d-flex justify-content-between">
+              <p>0</p>
+              <p>100</p>
+            </div>
+            <!--  Tingkat Kepuasan  -->
+
+            <!-- Button Submit -->
+            <div class="d-flex justify-content-end mt-5">
+              <button type="submit" class="btn btn-success">Prediksi</button>
+            </div>
+            <!-- End of Button Submit -->
+          </form>
+        </div>
+
+        <div class="col-4 pt-5 px-2 card gx-3" style="background-color: #E2F6FF;">
+          <h3 class="text-center">Hasil Prediksi</h2>
+            {% if hasil_prediksi %}
+            <p class="text-center">Karyawan tersebut diprediksi <span class="fw-bold">{{nilai_kepercayaan}}% {{hasil_prediksi}}</span></p>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
